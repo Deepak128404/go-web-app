@@ -5,4 +5,4 @@
 image:
   repository: deepak25404/go-web-app
   pullPolicy: IfNotPresent
-  tag: v0
+  tag: "10061759180"
