@@ -1,0 +1,17 @@
+# Default values for go-web-app-charts.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+image:
+  repository: deepak25404/go-web-app
+  pullPolicy: IfNotPresent
+  tag: v0
+
+
+
+
+
+
+
+
+
