@@ -49,11 +49,15 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-          
+
+
       - name: Build and push
-        uses: docker/bake-action@v5
+        uses: docker/build-push-action@v6
         with:
-          push: true
+        context: .
+        file: ./Dockerfile
+        push: true
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/go-web-app:${{github.run_id}}
 
     
   
