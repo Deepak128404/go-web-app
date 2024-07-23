@@ -25,3 +25,13 @@ jobs:
 
     - name: Test
       run: go test -v ./...
+
+  code-quality-analysis:
+    runs-on: ubuntu-latest
+    steps: 
+    - name: checkout repo
+      uses: actions/checkout@v4
+    - name: GolangCI-Linter
+      uses: Mushus/golangci-linter@v1.1.2
+  
+    
