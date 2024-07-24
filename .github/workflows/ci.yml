@@ -46,7 +46,8 @@ jobs:
         with:
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/go-web-app:${{github.run_no}}
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/go-web-app:${{github.run_id}}
+          run: echo ${{github.run_no}}
   update-helm-chart:
     needs: build-push
     runs-on: ubuntu-latest
@@ -57,7 +58,7 @@ jobs:
         token: ${{ secrets.GITHUBTOKEN }}
     - name: Update tag in Helm chart
       run: |
-        sed -i 's/tag: .*/tag: "${{github.run_no}}"/' go-web-chart/values.yaml
+        sed -i 's/tag: .*/tag: "${{github.run_id}}"/' go-web-chart/values.yaml
     - name: Commit and push changes
       run: |
         git config --global user.email "jitcse.deepaksingh@gmail.com"
