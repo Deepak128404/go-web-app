@@ -6,6 +6,7 @@ on:
     paths-ignore:
       - static/*
       - README.md
+      - go-web-chart/*
 jobs:
   build:
     runs-on: ubuntu-latest
