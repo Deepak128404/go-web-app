@@ -47,7 +47,6 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/go-web-app:${{github.run_id}}
-          run: echo ${{github.run_no}}
   update-helm-chart:
     needs: build-push
     runs-on: ubuntu-latest
