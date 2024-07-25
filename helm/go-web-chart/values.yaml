@@ -1,8 +1,28 @@
-# Default values for go-web-app-charts.
-# This is a YAML-formatted file.
-# Declare variables to be passed into your templates.
+# Deployment-related values
+deployment:
+  name: go-deployment
+  labels:
+    app: go-web-app
+  containerName: go-container
+  containerPort: 8080
 
+# Image details
 image:
   repository: deepak25404/go-web-app
-  pullPolicy: IfNotPresent
-  tag: "10090383847"
+  tag: v0
+
+# Service-related values
+service:
+  name: go-service
+  type: ClusterIP
+  port: 80
+  targetPort: 8080
+
+# Ingress-related values
+ingress:
+  name: go-web-ingress
+  className: nginx
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  path: /
+  pathType: Prefix
