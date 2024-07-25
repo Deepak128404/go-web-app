@@ -3,9 +3,9 @@ kind: Ingress
 metadata:
   name: go-web-ingress
   annotations:
-    kubernetes.io/ingress.class: alb
-    alb.ingress.kubernetes.io/scheme: internet-facing
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
+  ingressClassName: nginx
   rules:
   - http:
       paths:
@@ -14,5 +14,5 @@ spec:
         backend:
           service:
             name: go-service
-            port: 
+            port:
               number: 80
