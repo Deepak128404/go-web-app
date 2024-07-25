@@ -6,7 +6,7 @@ on:
     paths-ignore:
       - static/*
       - README.md
-      - go-web-chart/*
+      - helm/*
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -57,7 +57,7 @@ jobs:
         token: ${{ secrets.GITHUBTOKEN }}
     - name: Update tag in Helm chart
       run: |
-        sed -i 's/tag: .*/tag: "${{github.run_id}}"/' go-web-chart/values.yaml
+        sed -i 's/tag: .*/tag: "${{github.run_id}}"/' helm/go-web-chart/values.yaml
     - name: Commit and push changes
       run: |
         git config --global user.email "jitcse.deepaksingh@gmail.com"
